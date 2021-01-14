@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/maintenance-request`,
+    require('./maintenanceRequestCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/maintenance-request/:id`,
+    require('./maintenanceRequestUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/maintenance-request/import`,
+    require('./maintenanceRequestImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/maintenance-request`,
+    require('./maintenanceRequestDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/maintenance-request/autocomplete`,
+    require('./maintenanceRequestAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/maintenance-request`,
+    require('./maintenanceRequestList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/maintenance-request/:id`,
+    require('./maintenanceRequestFind').default,
+  );
+};

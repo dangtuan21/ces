@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/message`,
+    require('./messageCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/message/:id`,
+    require('./messageUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/message/import`,
+    require('./messageImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/message`,
+    require('./messageDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/message/autocomplete`,
+    require('./messageAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/message`,
+    require('./messageList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/message/:id`,
+    require('./messageFind').default,
+  );
+};

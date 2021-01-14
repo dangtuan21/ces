@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/property`,
+    require('./propertyCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/property/:id`,
+    require('./propertyUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/property/import`,
+    require('./propertyImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/property`,
+    require('./propertyDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/property/autocomplete`,
+    require('./propertyAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/property`,
+    require('./propertyList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/property/:id`,
+    require('./propertyFind').default,
+  );
+};

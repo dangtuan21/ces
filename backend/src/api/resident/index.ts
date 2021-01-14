@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/resident`,
+    require('./residentCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/resident/:id`,
+    require('./residentUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/resident/import`,
+    require('./residentImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/resident`,
+    require('./residentDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/resident/autocomplete`,
+    require('./residentAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/resident`,
+    require('./residentList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/resident/:id`,
+    require('./residentFind').default,
+  );
+};
