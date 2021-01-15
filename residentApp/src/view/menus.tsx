@@ -70,9 +70,9 @@ export default [
   },
 
   {
-    path: '/message',
-    permissionRequired: permissions.messageRead,
+    path: '/feedback',
+    permissionRequired: permissions.feedbackRead,
     icon: 'fas fa-chevron-right',
-    label: i18n('entities.message.menu'),
+    label: i18n('entities.feedback.menu'),
   },
 ].filter(Boolean);

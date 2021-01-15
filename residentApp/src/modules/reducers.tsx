@@ -10,7 +10,7 @@ import property from 'src/modules/property/propertyReducers';
 import resident from 'src/modules/resident/residentReducers';
 import maintenanceRequest from 'src/modules/maintenanceRequest/maintenanceRequestReducers';
 import announcement from 'src/modules/announcement/announcementReducers';
-import message from 'src/modules/message/messageReducers';
+import feedback from 'src/modules/feedback/feedbackReducers';
 import { combineReducers } from 'redux';
 
 export default (history) =>
@@ -27,5 +27,5 @@ export default (history) =>
     resident,
     maintenanceRequest,
     announcement,
-    message,
+    feedback,
   });

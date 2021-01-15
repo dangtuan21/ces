@@ -249,57 +249,56 @@ const en = {
       },
     },
 
-    message: {
-      name: 'message',
-      label: 'Messages',
-      menu: 'Messages',
-      exporterFileName: 'message_export',
+    feedback: {
+      name: 'feedback',
+      label: 'Feedbacks',
+      menu: 'Feedbacks',
+      exporterFileName: 'feedback_export',
       list: {
-        menu: 'Messages',
-        title: 'Messages',
+        menu: 'Feedbacks',
+        title: 'Feedbacks',
       },
       create: {
-        success: 'Message successfully saved',
+        success: 'Feedback successfully saved',
       },
       update: {
-        success: 'Message successfully saved',
+        success: 'Feedback successfully saved',
       },
       destroy: {
-        success: 'Message successfully deleted',
+        success: 'Feedback successfully deleted',
       },
       destroyAll: {
-        success: 'Message(s) successfully deleted',
+        success: 'Feedback(s) successfully deleted',
       },
       edit: {
-        title: 'Edit Message',
+        title: 'Edit Feedback',
       },
       fields: {
         id: 'Id',
         title: 'Title',
         description: 'Description',
-        messageStatus: 'MessageStatus',
+        feedbackStatus: 'FeedbackStatus',
         assignee: 'Assignee',
         createdAt: 'Created at',
         updatedAt: 'Updated at',
         createdAtRange: 'Created at',
       },
       enumerators: {
-        messageStatus: {
-          sent: 'Sent',
-          received: 'Received',
+        feedbackStatus: {
+          pending: 'Pending',
           working: 'Working',
           closed: 'Closed',
         },
       },
       new: {
-        title: 'New Message',
+        title: 'New Feedback',
       },
       view: {
-        title: 'View Message',
+        title: 'View Feedback',
       },
       importer: {
-        title: 'Import Messages',
-        fileName: 'message_import_template',
+        title: 'Import Feedbacks',
+        fileName: 'feedback_import_template',
         hint:
           'Files/Images columns must be the URLs of the files separated by space.',
       },

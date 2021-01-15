@@ -448,8 +448,8 @@ class Permissions {
         ],
       },
 
-      messageImport: {
-        id: 'messageImport',
+      feedbackImport: {
+        id: 'feedbackImport',
         allowedRoles: [roles.admin],
         allowedPlans: [
           plans.free,
@@ -457,8 +457,8 @@ class Permissions {
           plans.enterprise,
         ],
       },
-      messageCreate: {
-        id: 'messageCreate',
+      feedbackCreate: {
+        id: 'feedbackCreate',
         allowedRoles: [
           roles.admin,
           roles.operator,
@@ -472,8 +472,8 @@ class Permissions {
         ],
         allowedStorage: [],
       },
-      messageEdit: {
-        id: 'messageEdit',
+      feedbackEdit: {
+        id: 'feedbackEdit',
         allowedRoles: [
           roles.admin,
           roles.operator,
@@ -487,8 +487,8 @@ class Permissions {
         ],
         allowedStorage: [],
       },
-      messageDestroy: {
-        id: 'messageDestroy',
+      feedbackDestroy: {
+        id: 'feedbackDestroy',
         allowedRoles: [
           roles.admin,
           roles.operator,
@@ -502,8 +502,8 @@ class Permissions {
         ],
         allowedStorage: [],
       },
-      messageRead: {
-        id: 'messageRead',
+      feedbackRead: {
+        id: 'feedbackRead',
         allowedRoles: [
           roles.admin,
           roles.operator,
@@ -516,8 +516,8 @@ class Permissions {
           plans.enterprise,
         ],
       },
-      messageAutocomplete: {
-        id: 'messageAutocomplete',
+      feedbackAutocomplete: {
+        id: 'feedbackAutocomplete',
         allowedRoles: [
           roles.admin,
           roles.operator,
