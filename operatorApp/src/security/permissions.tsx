@@ -530,6 +530,88 @@ class Permissions {
           plans.enterprise,
         ],
       },
+      feedbackImport: {
+        id: 'feedbackImport',
+        allowedRoles: [roles.admin],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+      },
+      feedbackCreate: {
+        id: 'feedbackCreate',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+        allowedStorage: [],
+      },
+      feedbackEdit: {
+        id: 'feedbackEdit',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+        allowedStorage: [],
+      },
+      feedbackDestroy: {
+        id: 'feedbackDestroy',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+        allowedStorage: [],
+      },
+      feedbackRead: {
+        id: 'feedbackRead',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+      },
+      feedbackAutocomplete: {
+        id: 'feedbackAutocomplete',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+      },
     };
   }
 

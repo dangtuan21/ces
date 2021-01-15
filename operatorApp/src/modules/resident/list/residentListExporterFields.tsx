@@ -32,6 +32,11 @@ export default [
     render: exporterRenders.relationToOne(),
   },
   {
+    name: 'user',
+    label: i18n('entities.resident.fields.user'),
+    render: exporterRenders.relationToOne(),
+  },
+  {
     name: 'createdAt',
     label: i18n('entities.resident.fields.createdAt'),
     render: exporterRenders.datetime(),

@@ -11,7 +11,7 @@ import resident from 'src/modules/resident/residentReducers';
 import expense from 'src/modules/expense/expenseReducers';
 import maintenanceRequest from 'src/modules/maintenanceRequest/maintenanceRequestReducers';
 import announcement from 'src/modules/announcement/announcementReducers';
-import message from 'src/modules/message/messageReducers';
+import feedback from 'src/modules/feedback/feedbackReducers';
 import { combineReducers } from 'redux';
 
 export default (history) =>
@@ -29,5 +29,5 @@ export default (history) =>
     expense,
     maintenanceRequest,
     announcement,
-    message,
+    feedback,
   });

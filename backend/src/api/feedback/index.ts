@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/feedback`,
+    require('./feedbackCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/feedback/:id`,
+    require('./feedbackUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/feedback/import`,
+    require('./feedbackImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/feedback`,
+    require('./feedbackDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/feedback/autocomplete`,
+    require('./feedbackAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/feedback`,
+    require('./feedbackList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/feedback/:id`,
+    require('./feedbackFind').default,
+  );
+};

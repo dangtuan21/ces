@@ -1,6 +1,6 @@
 const models = [
   require('./tenant').default,
-  require('./auditLog').default,  
+  require('./auditLog').default,
   require('./settings').default,
   require('./user').default,
   require('./customer').default,
@@ -10,7 +10,7 @@ const models = [
   require('./expense').default,
   require('./maintenanceRequest').default,
   require('./announcement').default,
-  require('./message').default,  
+  require('./feedback').default,
 ];
 
 export default function init(database) {

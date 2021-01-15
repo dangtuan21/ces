@@ -33,6 +33,10 @@ export default (database) => {
         type: Schema.Types.ObjectId,
         ref: 'property',
       },
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+      },
       tenant: {
         type: Schema.Types.ObjectId,
         ref: 'tenant',
@@ -59,8 +63,6 @@ export default (database) => {
       },
     },
   );
-
-  
 
   ResidentSchema.virtual('id').get(function () {
     // @ts-ignore

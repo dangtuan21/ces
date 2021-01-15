@@ -312,40 +312,40 @@ const privateRoutes = [
   },
 
   {
-    path: '/message',
+    path: '/feedback',
     loader: () =>
-      import('src/view/message/list/MessageListPage'),
-    permissionRequired: permissions.messageRead,
+      import('src/view/feedback/list/FeedbackListPage'),
+    permissionRequired: permissions.feedbackRead,
     exact: true,
   },
   {
-    path: '/message/new',
+    path: '/feedback/new',
     loader: () =>
-      import('src/view/message/form/MessageFormPage'),
-    permissionRequired: permissions.messageCreate,
+      import('src/view/feedback/form/FeedbackFormPage'),
+    permissionRequired: permissions.feedbackCreate,
     exact: true,
   },
   {
-    path: '/message/importer',
+    path: '/feedback/importer',
     loader: () =>
       import(
-        'src/view/message/importer/MessageImporterPage'
+        'src/view/feedback/importer/FeedbackImporterPage'
       ),
-    permissionRequired: permissions.messageImport,
+    permissionRequired: permissions.feedbackImport,
     exact: true,
   },
   {
-    path: '/message/:id/edit',
+    path: '/feedback/:id/edit',
     loader: () =>
-      import('src/view/message/form/MessageFormPage'),
-    permissionRequired: permissions.messageEdit,
+      import('src/view/feedback/form/FeedbackFormPage'),
+    permissionRequired: permissions.feedbackEdit,
     exact: true,
   },
   {
-    path: '/message/:id',
+    path: '/feedback/:id',
     loader: () =>
-      import('src/view/message/view/MessageViewPage'),
-    permissionRequired: permissions.messageRead,
+      import('src/view/feedback/view/FeedbackViewPage'),
+    permissionRequired: permissions.feedbackRead,
     exact: true,
   },
 ].filter(Boolean);

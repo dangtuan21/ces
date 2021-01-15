@@ -90,61 +90,45 @@ const en = {
   entities: {
     customer: {
       errors: {
-        unique: {
-
-        }
-      }
+        unique: {},
+      },
     },
     property: {
       errors: {
-        unique: {
-
-        }
-      }
+        unique: {},
+      },
     },
     order: {
       errors: {
-        unique: {
-
-        }
-      }
+        unique: {},
+      },
     },
     resident: {
       errors: {
-        unique: {
-
-        }
-      }
+        unique: {},
+      },
     },
     expense: {
       errors: {
-        unique: {
-
-        }
-      }
+        unique: {},
+      },
     },
     maintenanceRequest: {
       errors: {
-        unique: {
-
-        }
-      }
+        unique: {},
+      },
     },
     announcement: {
       errors: {
-        unique: {
-
-        }
-      }
+        unique: {},
+      },
     },
-    message: {
+    feedback: {
       errors: {
-        unique: {
-
-        }
-      }
+        unique: {},
+      },
     },
-  }
+  },
 };
 
 export default en;

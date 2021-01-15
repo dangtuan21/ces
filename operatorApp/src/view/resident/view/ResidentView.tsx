@@ -4,6 +4,7 @@ import ViewWrapper from 'src/view/shared/styles/ViewWrapper';
 import { i18n } from 'src/i18n';
 import TextViewItem from 'src/view/shared/view/TextViewItem';
 import PropertyViewItem from 'src/view/property/view/PropertyViewItem';
+import UserViewItem from 'src/view/user/view/UserViewItem';
 
 function ResidentView(props) {
   const { record, loading } = props;
@@ -42,6 +43,10 @@ function ResidentView(props) {
       <PropertyViewItem
         label={i18n('entities.resident.fields.property')}
         value={record.property}
+      />
+      <UserViewItem
+        label={i18n('entities.resident.fields.user')}
+        value={record.user}
       />
     </ViewWrapper>
   );

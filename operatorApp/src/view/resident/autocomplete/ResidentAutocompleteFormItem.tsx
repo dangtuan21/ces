@@ -83,7 +83,6 @@ function ResidentAutocompleteFormItem(props) {
         onOpenModal={doOpenModal}
         hasPermissionToCreate={hasPermissionToCreate}
       />
-
       {modalVisible && (
         <ResidentFormModal
           onClose={doCloseModal}

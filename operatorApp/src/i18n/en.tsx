@@ -231,6 +231,7 @@ const en = {
         phoneNumber: 'Phone Number',
         email: 'Email',
         property: 'Property',
+        user: 'User',
         createdAt: 'Created at',
         updatedAt: 'Updated at',
         createdAtRange: 'Created at',
@@ -463,6 +464,60 @@ const en = {
       importer: {
         title: 'Import Messages',
         fileName: 'message_import_template',
+        hint:
+          'Files/Images columns must be the URLs of the files separated by space.',
+      },
+    },
+    feedback: {
+      name: 'feedback',
+      label: 'Feedbacks',
+      menu: 'Feedbacks',
+      exporterFileName: 'feedback_export',
+      list: {
+        menu: 'Feedbacks',
+        title: 'Feedbacks',
+      },
+      create: {
+        success: 'Feedback successfully saved',
+      },
+      update: {
+        success: 'Feedback successfully saved',
+      },
+      destroy: {
+        success: 'Feedback successfully deleted',
+      },
+      destroyAll: {
+        success: 'Feedback(s) successfully deleted',
+      },
+      edit: {
+        title: 'Edit Feedback',
+      },
+      fields: {
+        id: 'Id',
+        title: 'Title',
+        description: 'Description',
+        feedbackStatus: 'FeedbackStatus',
+        assignee: 'Assignee',
+        createdAt: 'Created at',
+        updatedAt: 'Updated at',
+        createdAtRange: 'Created at',
+      },
+      enumerators: {
+        feedbackStatus: {
+          pending: 'Pending',
+          working: 'Working',
+          closed: 'Closed',
+        },
+      },
+      new: {
+        title: 'New Feedback',
+      },
+      view: {
+        title: 'View Feedback',
+      },
+      importer: {
+        title: 'Import Feedbacks',
+        fileName: 'feedback_import_template',
         hint:
           'Files/Images columns must be the URLs of the files separated by space.',
       },

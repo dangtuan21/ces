@@ -50,4 +50,12 @@ export default [
       {},
     ),
   },
+  {
+    name: 'user',
+    label: i18n('entities.resident.fields.user'),
+    schema: schemas.relationToOne(
+      i18n('entities.resident.fields.user'),
+      {},
+    ),
+  },
 ];

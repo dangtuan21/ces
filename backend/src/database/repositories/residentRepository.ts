@@ -46,8 +46,6 @@ class ResidentRepository {
       options,
     );
 
-    
-
     return this.findById(record.id, options);
   }
 
@@ -57,7 +55,11 @@ class ResidentRepository {
    * @param {Object} data
    * @param {Object} [options]
    */
-  static async update(id, data, options: IRepositoryOptions) {
+  static async update(
+    id,
+    data,
+    options: IRepositoryOptions,
+  ) {
     const currentTenant = MongooseRepository.getCurrentTenant(
       options,
     );
@@ -96,8 +98,6 @@ class ResidentRepository {
 
     record = await this.findById(id, options);
 
-
-
     return record;
   }
 
@@ -135,8 +135,6 @@ class ResidentRepository {
       record,
       options,
     );
-
-
   }
 
   /**
@@ -173,7 +171,8 @@ class ResidentRepository {
     let record = await MongooseRepository.wrapWithSessionIfExists(
       Resident(options.database)
         .findById(id)
-      .populate('property'),
+        .populate('property')
+        .populate('user'),
       options,
     );
 
@@ -209,7 +208,7 @@ class ResidentRepository {
     );
 
     let criteriaAnd: any = [];
-    
+
     criteriaAnd.push({
       tenant: currentTenant.id,
     });
@@ -284,6 +283,12 @@ class ResidentRepository {
         });
       }
 
+      if (filter.user) {
+        criteriaAnd.push({
+          user: MongooseQueryUtils.uuid(filter.user),
+        });
+      }
+
       if (filter.createdAtRange) {
         const [start, end] = filter.createdAtRange;
 
@@ -349,14 +354,20 @@ class ResidentRepository {
    * @param {Object} search
    * @param {number} limit
    */
-  static async findAllAutocomplete(search, limit, options: IRepositoryOptions) {
+  static async findAllAutocomplete(
+    search,
+    limit,
+    options: IRepositoryOptions,
+  ) {
     const currentTenant = MongooseRepository.getCurrentTenant(
       options,
     );
 
-    let criteriaAnd: Array<any> = [{
-      tenant: currentTenant.id,
-    }];
+    let criteriaAnd: Array<any> = [
+      {
+        tenant: currentTenant.id,
+      },
+    ];
 
     if (search) {
       criteriaAnd.push({
@@ -366,10 +377,12 @@ class ResidentRepository {
           },
           {
             firstName: {
-              $regex: MongooseQueryUtils.escapeRegExp(search),
+              $regex: MongooseQueryUtils.escapeRegExp(
+                search,
+              ),
               $options: 'i',
-            }
-          },          
+            },
+          },
         ],
       });
     }
@@ -398,7 +411,12 @@ class ResidentRepository {
    * @param {object} data - The new data passed on the request
    * @param {object} options
    */
-  static async _createAuditLog(action, id, data, options: IRepositoryOptions) {
+  static async _createAuditLog(
+    action,
+    id,
+    data,
+    options: IRepositoryOptions,
+  ) {
     await AuditLogRepository.log(
       {
         entityName: Resident(options.database).modelName,
@@ -418,8 +436,6 @@ class ResidentRepository {
     const output = record.toObject
       ? record.toObject()
       : record;
-
-
 
     return output;
   }

@@ -12,7 +12,7 @@ import Resident from '../models/resident';
 import Expense from '../models/expense';
 import MaintenanceRequest from '../models/maintenanceRequest';
 import Announcement from '../models/announcement';
-import Message from '../models/message';
+import Feedback from '../models/feedback';
 import Error400 from '../../errors/Error400';
 import { v4 as uuid } from 'uuid';
 import { isUserInTenant } from '../utils/userTenantUtils';
@@ -88,7 +88,11 @@ class TenantRepository {
    * @param {Object} data
    * @param {Object} [options]
    */
-  static async update(id, data, options: IRepositoryOptions) {
+  static async update(
+    id,
+    data,
+    options: IRepositoryOptions,
+  ) {
     const currentUser = MongooseRepository.getCurrentUser(
       options,
     );
@@ -257,7 +261,7 @@ class TenantRepository {
       record,
       options,
     );
-    
+
     await MongooseRepository.wrapWithSessionIfExists(
       Customer(options.database).deleteMany({ tenant: id }),
       options,
@@ -284,17 +288,23 @@ class TenantRepository {
     );
 
     await MongooseRepository.wrapWithSessionIfExists(
-      MaintenanceRequest(options.database).deleteMany({ tenant: id }),
+      MaintenanceRequest(options.database).deleteMany({
+        tenant: id,
+      }),
       options,
     );
 
     await MongooseRepository.wrapWithSessionIfExists(
-      Announcement(options.database).deleteMany({ tenant: id }),
+      Announcement(options.database).deleteMany({
+        tenant: id,
+      }),
       options,
     );
 
     await MongooseRepository.wrapWithSessionIfExists(
-      Message(options.database).deleteMany({ tenant: id }),
+      Feedback(options.database).deleteMany({
+        tenant: id,
+      }),
       options,
     );
 
@@ -505,18 +515,24 @@ class TenantRepository {
    * @param {Object} search
    * @param {number} limit
    */
-  static async findAllAutocomplete(search, limit, options: IRepositoryOptions) {
+  static async findAllAutocomplete(
+    search,
+    limit,
+    options: IRepositoryOptions,
+  ) {
     const currentUser = MongooseRepository.getCurrentUser(
       options,
     );
 
-    let criteriaAnd: Array<any> = [{
-      _id: {
-        $in: currentUser.tenants.map(
-          (userTenant) => userTenant.tenant.id,
-        ),
+    let criteriaAnd: Array<any> = [
+      {
+        _id: {
+          $in: currentUser.tenants.map(
+            (userTenant) => userTenant.tenant.id,
+          ),
+        },
       },
-    }];
+    ];
 
     if (search) {
       criteriaAnd.push({
@@ -560,7 +576,12 @@ class TenantRepository {
    * @param {object} data - The new data passed on the request
    * @param {object} options
    */
-  static async _createAuditLog(action, id, data, options: IRepositoryOptions) {
+  static async _createAuditLog(
+    action,
+    id,
+    data,
+    options: IRepositoryOptions,
+  ) {
     await AuditLogRepository.log(
       {
         entityName: Tenant(options.database).modelName,

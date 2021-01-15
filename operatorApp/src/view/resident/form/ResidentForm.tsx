@@ -8,6 +8,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputFormItem from 'src/view/shared/form/items/InputFormItem';
 import PropertyAutocompleteFormItem from 'src/view/property/autocomplete/PropertyAutocompleteFormItem';
+import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
 
 const schema = yup.object().shape({
   firstName: yupFormSchemas.string(
@@ -34,6 +35,10 @@ const schema = yup.object().shape({
     i18n('entities.resident.fields.property'),
     {},
   ),
+  user: yupFormSchemas.relationToOne(
+    i18n('entities.resident.fields.user'),
+    {},
+  ),
 });
 
 function ResidentForm(props) {
@@ -47,6 +52,7 @@ function ResidentForm(props) {
       phoneNumber: record.phoneNumber,
       email: record.email,
       property: record.property,
+      user: record.user,
     };
   });
 
@@ -74,43 +80,65 @@ function ResidentForm(props) {
             <div className="col-lg-7 col-md-8 col-12">
               <InputFormItem
                 name="firstName"
-                label={i18n('entities.resident.fields.firstName')}  
+                label={i18n(
+                  'entities.resident.fields.firstName',
+                )}
                 required={false}
-              autoFocus
+                autoFocus
               />
             </div>
             <div className="col-lg-7 col-md-8 col-12">
               <InputFormItem
                 name="lastName"
-                label={i18n('entities.resident.fields.lastName')}  
+                label={i18n(
+                  'entities.resident.fields.lastName',
+                )}
                 required={false}
               />
             </div>
             <div className="col-lg-7 col-md-8 col-12">
               <InputFormItem
                 name="middleName"
-                label={i18n('entities.resident.fields.middleName')}  
+                label={i18n(
+                  'entities.resident.fields.middleName',
+                )}
                 required={false}
               />
             </div>
             <div className="col-lg-7 col-md-8 col-12">
               <InputFormItem
                 name="phoneNumber"
-                label={i18n('entities.resident.fields.phoneNumber')}  
+                label={i18n(
+                  'entities.resident.fields.phoneNumber',
+                )}
                 required={false}
               />
             </div>
             <div className="col-lg-7 col-md-8 col-12">
               <InputFormItem
                 name="email"
-                label={i18n('entities.resident.fields.email')}  
+                label={i18n(
+                  'entities.resident.fields.email',
+                )}
                 required={false}
               />
             </div>
             <div className="col-lg-7 col-md-8 col-12">
-              <PropertyAutocompleteFormItem  
+              <PropertyAutocompleteFormItem
                 name="property"
-                label={i18n('entities.resident.fields.property')}
+                label={i18n(
+                  'entities.resident.fields.property',
+                )}
+                required={false}
+                showCreate={!props.modal}
+              />
+            </div>
+            <div className="col-lg-7 col-md-8 col-12">
+              <UserAutocompleteFormItem
+                name="user"
+                label={i18n(
+                  'entities.resident.fields.user',
+                )}
                 required={false}
                 showCreate={!props.modal}
               />
