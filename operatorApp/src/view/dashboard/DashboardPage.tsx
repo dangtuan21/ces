@@ -41,58 +41,7 @@ const DashboardPage = (props) => {
             className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4"
           >
             <div className="bg-white p-2 border rounded">
-              <DashboardMixChartTwo />
-            </div>
-          </div>
-          <div
-            style={{
-              paddingLeft: '12px',
-              paddingRight: '12px',
-              paddingBottom: '24px',
-            }}
-            className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4"
-          >
-            <div className="bg-white p-2 border rounded">
               <DashboardBarChart />
-            </div>
-          </div>
-
-          <div
-            style={{
-              paddingLeft: '12px',
-              paddingRight: '12px',
-              paddingBottom: '24px',
-            }}
-            className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
-          >
-            <div className="bg-white p-2 border rounded">
-              <DashboardMixChartOne />
-            </div>
-          </div>
-
-          <div
-            style={{
-              paddingLeft: '12px',
-              paddingRight: '12px',
-              paddingBottom: '24px',
-            }}
-            className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
-          >
-            <div className="bg-white p-2 border rounded">
-              <DashboardPolarChart />
-            </div>
-          </div>
-
-          <div
-            style={{
-              paddingLeft: '12px',
-              paddingRight: '12px',
-              paddingBottom: '24px',
-            }}
-            className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4"
-          >
-            <div className="bg-white p-2 border rounded">
-              <DashboardHorizontalBarChart />
             </div>
           </div>
           <div
@@ -107,6 +56,33 @@ const DashboardPage = (props) => {
               <DashboardLineChart />
             </div>
           </div>
+
+          <div
+            style={{
+              paddingLeft: '12px',
+              paddingRight: '12px',
+              paddingBottom: '24px',
+            }}
+            className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+          >
+            {/* <div className="bg-white p-2 border rounded">
+              <DashboardMixChartTwo />
+            </div> */}
+          </div>
+
+          <div
+            style={{
+              paddingLeft: '12px',
+              paddingRight: '12px',
+              paddingBottom: '24px',
+            }}
+            className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+          >
+            {/* <div className="bg-white p-2 border rounded">
+              <DashboardPolarChart />
+            </div> */}
+          </div>
+
           <div
             style={{
               paddingLeft: '12px',
@@ -115,9 +91,33 @@ const DashboardPage = (props) => {
             }}
             className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4"
           >
-            <div className="bg-white p-2 border rounded">
+            {/* <div className="bg-white p-2 border rounded">
+              <DashboardHorizontalBarChart />
+            </div> */}
+          </div>
+          <div
+            style={{
+              paddingLeft: '12px',
+              paddingRight: '12px',
+              paddingBottom: '24px',
+            }}
+            className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4"
+          >
+            {/* <div className="bg-white p-2 border rounded">
+              <DashboardMixChartOne />
+            </div> */}
+          </div>
+          <div
+            style={{
+              paddingLeft: '12px',
+              paddingRight: '12px',
+              paddingBottom: '24px',
+            }}
+            className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4"
+          >
+            {/* <div className="bg-white p-2 border rounded">
               <DashboardRadarChart />
-            </div>
+            </div> */}
           </div>
         </div>
         <p

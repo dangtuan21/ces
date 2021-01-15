@@ -26,7 +26,7 @@ const en = {
   },
 
   app: {
-    title: 'CES Operation',
+    title: 'CES Operator',
   },
 
   entities: {
@@ -413,61 +413,6 @@ const en = {
       },
     },
 
-    message: {
-      name: 'message',
-      label: 'Messages',
-      menu: 'Messages',
-      exporterFileName: 'message_export',
-      list: {
-        menu: 'Messages',
-        title: 'Messages',
-      },
-      create: {
-        success: 'Message successfully saved',
-      },
-      update: {
-        success: 'Message successfully saved',
-      },
-      destroy: {
-        success: 'Message successfully deleted',
-      },
-      destroyAll: {
-        success: 'Message(s) successfully deleted',
-      },
-      edit: {
-        title: 'Edit Message',
-      },
-      fields: {
-        id: 'Id',
-        title: 'Title',
-        description: 'Description',
-        messageStatus: 'MessageStatus',
-        assignee: 'Assignee',
-        createdAt: 'Created at',
-        updatedAt: 'Updated at',
-        createdAtRange: 'Created at',
-      },
-      enumerators: {
-        messageStatus: {
-          sent: 'Sent',
-          received: 'Received',
-          working: 'Working',
-          closed: 'Closed',
-        },
-      },
-      new: {
-        title: 'New Message',
-      },
-      view: {
-        title: 'View Message',
-      },
-      importer: {
-        title: 'Import Messages',
-        fileName: 'message_import_template',
-        hint:
-          'Files/Images columns must be the URLs of the files separated by space.',
-      },
-    },
     feedback: {
       name: 'feedback',
       label: 'Feedbacks',
@@ -787,7 +732,7 @@ const en = {
   },
   dashboard: {
     menu: 'Dashboard',
-    message: `This page uses fake data for demonstration purposes only. You can edit it at frontend/view/dashboard/DashboardPage.ts.`,
+    message: `Bieu do chinh`,
     charts: {
       day: 'Day',
       red: 'Red',
