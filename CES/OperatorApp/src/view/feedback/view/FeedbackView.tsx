@@ -35,6 +35,19 @@ function FeedbackView(props) {
           )
         }
       />
+      <TextViewItem
+        label={i18n('entities.feedback.fields.sourceType')}
+        value={
+          record.sourceType &&
+          i18n(
+            `entities.feedback.enumerators.sourceType.${record.sourceType}`,
+          )
+        }
+      />
+      <TextViewItem
+        label={i18n('entities.feedback.fields.sourceId')}
+        value={record.sourceId}
+      />
 
       <UserViewItem
         label={i18n('entities.feedback.fields.assignee')}

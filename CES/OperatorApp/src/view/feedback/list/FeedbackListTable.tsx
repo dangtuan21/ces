@@ -113,38 +113,57 @@ function FeedbackListTable(props) {
                   </div>
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'title'}
-                  label={i18n(
-                    'entities.feedback.fields.title',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'description'}
-                  label={i18n(
-                    'entities.feedback.fields.description',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'feedbackStatus'}
-                  label={i18n(
-                    'entities.feedback.fields.feedbackStatus',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.feedback.fields.assignee',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'title'}
+                label={i18n(
+                  'entities.feedback.fields.title',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'description'}
+                label={i18n(
+                  'entities.feedback.fields.description',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'feedbackStatus'}
+                label={i18n(
+                  'entities.feedback.fields.feedbackStatus',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'sourceType'}
+                label={i18n(
+                  'entities.feedback.fields.sourceType',
+                )}
+              />
+              {/* <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'sourceId'}
+                label={i18n(
+                  'entities.feedback.fields.sourceId',
+                )}
+              /> */}
+
+              <TableColumnHeader
+                label={i18n(
+                  'entities.feedback.fields.assignee',
+                )}
+              />
               <TableColumnHeader className="th-actions" />
             </tr>
           </thead>
@@ -198,6 +217,14 @@ function FeedbackListTable(props) {
                         )
                       : null}
                   </td>
+                  <td>
+                    {row.sourceType
+                      ? i18n(
+                          `entities.feedback.enumerators.sourceType.${row.sourceType}`,
+                        )
+                      : null}
+                  </td>
+                  {/* <td>{row.sourceId}</td> */}
                   <td>
                     <UserListItem value={row.assignee} />
                   </td>

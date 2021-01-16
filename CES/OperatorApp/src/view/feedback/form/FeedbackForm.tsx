@@ -27,6 +27,16 @@ const schema = yup.object().shape({
       options: feedbackEnumerators.feedbackStatus,
     },
   ),
+  sourceType: yupFormSchemas.enumerator(
+    i18n('entities.feedback.fields.sourceType'),
+    {
+      options: feedbackEnumerators.sourceType,
+    },
+  ),
+  sourceId: yupFormSchemas.enumerator(
+    i18n('entities.feedback.fields.sourceId'),
+    {},
+  ),
   assignee: yupFormSchemas.relationToOne(
     i18n('entities.feedback.fields.assignee'),
     {},
@@ -41,6 +51,8 @@ function FeedbackForm(props) {
       title: record.title,
       description: record.description,
       feedbackStatus: record.feedbackStatus,
+      sourceType: record.sourceType,
+      sourceId: record.sourceId,
       assignee: record.assignee,
     };
   });
@@ -102,6 +114,34 @@ function FeedbackForm(props) {
                 required={false}
               />
             </div>
+            <div className="col-lg-7 col-md-8 col-12">
+              <SelectFormItem
+                name="sourceType"
+                label={i18n(
+                  'entities.feedback.fields.sourceType',
+                )}
+                options={feedbackEnumerators.sourceType.map(
+                  (value) => ({
+                    value,
+                    label: i18n(
+                      `entities.feedback.enumerators.sourceType.${value}`,
+                    ),
+                  }),
+                )}
+                required={false}
+              />
+            </div>
+            <div className="col-lg-7 col-md-8 col-12">
+              <InputFormItem
+                name="sourceId"
+                label={i18n(
+                  'entities.feedback.fields.sourceId',
+                )}
+                required={false}
+                autoFocus
+              />
+            </div>
+
             <div className="col-lg-7 col-md-8 col-12">
               <UserAutocompleteFormItem
                 name="assignee"

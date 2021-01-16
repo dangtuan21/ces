@@ -25,8 +25,26 @@ export default [
     schema: schemas.enumerator(
       i18n('entities.feedback.fields.feedbackStatus'),
       {
-        "options": feedbackEnumerators.feedbackStatus
+        options: feedbackEnumerators.feedbackStatus,
       },
+    ),
+  },
+  {
+    name: 'sourceType',
+    label: i18n('entities.feedback.fields.sourceType'),
+    schema: schemas.enumerator(
+      i18n('entities.feedback.fields.sourceType'),
+      {
+        options: feedbackEnumerators.sourceType,
+      },
+    ),
+  },
+  {
+    name: 'sourceId',
+    label: i18n('entities.feedback.fields.sourceId'),
+    schema: schemas.string(
+      i18n('entities.feedback.fields.sourceId'),
+      {},
     ),
   },
   {

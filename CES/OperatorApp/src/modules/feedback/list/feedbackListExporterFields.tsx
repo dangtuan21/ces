@@ -19,6 +19,14 @@ export default [
     label: i18n('entities.feedback.fields.feedbackStatus'),
   },
   {
+    name: 'sourceType',
+    label: i18n('entities.feedback.fields.sourceType'),
+  },
+  {
+    name: 'sourceId',
+    label: i18n('entities.feedback.fields.sourceId'),
+  },
+  {
     name: 'assignee',
     label: i18n('entities.feedback.fields.assignee'),
     render: exporterRenders.relationToOne(),

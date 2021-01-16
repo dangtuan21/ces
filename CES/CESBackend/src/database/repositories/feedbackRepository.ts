@@ -247,6 +247,18 @@ class FeedbackRepository {
         });
       }
 
+      if (filter.sourceType) {
+        criteriaAnd.push({
+          sourceType: filter.sourceType,
+        });
+      }
+
+      if (filter.sourceId) {
+        criteriaAnd.push({
+          sourceId: filter.sourceId,
+        });
+      }
+
       if (filter.createdBy) {
         criteriaAnd.push({
           createdBy: MongooseQueryUtils.uuid(

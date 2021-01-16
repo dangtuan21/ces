@@ -441,7 +441,9 @@ const en = {
         id: 'Id',
         title: 'Title',
         description: 'Description',
-        feedbackStatus: 'FeedbackStatus',
+        feedbackStatus: 'Feedback Status',
+        sourceType: 'Source Type',
+        sourceId: 'Source Id',
         assignee: 'Assignee',
         createdAt: 'Created at',
         updatedAt: 'Updated at',
@@ -452,6 +454,10 @@ const en = {
           pending: 'Pending',
           working: 'Working',
           closed: 'Closed',
+        },
+        sourceType: {
+          self: 'Self',
+          fromHelpDesk: 'From HelpDesk',
         },
       },
       new: {

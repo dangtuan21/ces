@@ -22,12 +22,14 @@ export default (database) => {
       },
       feedbackStatus: {
         type: String,
-        enum: [
-          "pending",
-          "working",
-          "closed",
-          null
-        ],
+        enum: ['pending', 'working', 'closed', null],
+      },
+      sourceType: {
+        type: String,
+        enum: ['self', 'fromHelpDesk', null],
+      },
+      sourceId: {
+        type: String,
       },
       assignee: {
         type: Schema.Types.ObjectId,
@@ -59,8 +61,6 @@ export default (database) => {
       },
     },
   );
-
-  
 
   FeedbackSchema.virtual('id').get(function () {
     // @ts-ignore
