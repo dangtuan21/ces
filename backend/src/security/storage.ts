@@ -31,7 +31,6 @@ export default class Storage {
         publicRead: true,
       },
 
-
       propertyPhotos: {
         id: 'propertyPhotos',
         folder: 'tenant/:tenantId/property/photos',
@@ -44,19 +43,18 @@ export default class Storage {
         maxSizeInBytes: 1000000,
       },
 
-
-
-
-
       maintenanceRequestAttachment: {
         id: 'maintenanceRequestAttachment',
-        folder: 'tenant/:tenantId/maintenanceRequest/attachment',
+        folder:
+          'tenant/:tenantId/maintenanceRequest/attachment',
         maxSizeInBytes: 100 * 1024 * 1024,
       },
 
-
-
-
+      ticketAttachment: {
+        id: 'ticketAttachment',
+        folder: 'tenant/:tenantId/ticket/attachment',
+        maxSizeInBytes: 100 * 1024 * 1024,
+      },
     };
   }
 }

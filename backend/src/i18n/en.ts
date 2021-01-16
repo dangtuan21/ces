@@ -128,6 +128,16 @@ const en = {
         unique: {},
       },
     },
+    contact: {
+      errors: {
+        unique: {},
+      },
+    },
+    ticket: {
+      errors: {
+        unique: {},
+      },
+    },
   },
 };
 

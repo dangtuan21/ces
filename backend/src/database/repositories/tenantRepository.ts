@@ -13,6 +13,8 @@ import Expense from '../models/expense';
 import MaintenanceRequest from '../models/maintenanceRequest';
 import Announcement from '../models/announcement';
 import Feedback from '../models/feedback';
+import Contact from '../models/contact';
+import Ticket from '../models/ticket';
 import Error400 from '../../errors/Error400';
 import { v4 as uuid } from 'uuid';
 import { isUserInTenant } from '../utils/userTenantUtils';
@@ -303,6 +305,20 @@ class TenantRepository {
 
     await MongooseRepository.wrapWithSessionIfExists(
       Feedback(options.database).deleteMany({
+        tenant: id,
+      }),
+      options,
+    );
+
+    await MongooseRepository.wrapWithSessionIfExists(
+      Contact(options.database).deleteMany({
+        tenant: id,
+      }),
+      options,
+    );
+
+    await MongooseRepository.wrapWithSessionIfExists(
+      Ticket(options.database).deleteMany({
         tenant: id,
       }),
       options,

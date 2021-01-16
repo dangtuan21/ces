@@ -530,6 +530,172 @@ class Permissions {
           plans.enterprise,
         ],
       },
+
+      contactImport: {
+        id: 'contactImport',
+        allowedRoles: [roles.admin],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+      },
+      contactCreate: {
+        id: 'contactCreate',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+        allowedStorage: [],
+      },
+      contactEdit: {
+        id: 'contactEdit',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+        allowedStorage: [],
+      },
+      contactDestroy: {
+        id: 'contactDestroy',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+        allowedStorage: [],
+      },
+      contactRead: {
+        id: 'contactRead',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+      },
+      contactAutocomplete: {
+        id: 'contactAutocomplete',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+      },
+
+      ticketImport: {
+        id: 'ticketImport',
+        allowedRoles: [roles.admin],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+      },
+      ticketCreate: {
+        id: 'ticketCreate',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+        allowedStorage: [storage.ticketAttachment],
+      },
+      ticketEdit: {
+        id: 'ticketEdit',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+        allowedStorage: [storage.ticketAttachment],
+      },
+      ticketDestroy: {
+        id: 'ticketDestroy',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+        allowedStorage: [storage.ticketAttachment],
+      },
+      ticketRead: {
+        id: 'ticketRead',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+      },
+      ticketAutocomplete: {
+        id: 'ticketAutocomplete',
+        allowedRoles: [
+          roles.admin,
+          roles.operator,
+          roles.renter,
+          roles.resident,
+        ],
+        allowedPlans: [
+          plans.free,
+          plans.growth,
+          plans.enterprise,
+        ],
+      },
     };
   }
 

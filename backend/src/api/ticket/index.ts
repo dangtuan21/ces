@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/ticket`,
+    require('./ticketCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/ticket/:id`,
+    require('./ticketUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/ticket/import`,
+    require('./ticketImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/ticket`,
+    require('./ticketDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/ticket/autocomplete`,
+    require('./ticketAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/ticket`,
+    require('./ticketList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/ticket/:id`,
+    require('./ticketFind').default,
+  );
+};

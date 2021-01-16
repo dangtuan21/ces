@@ -68,6 +68,8 @@ require('./expense').default(routes);
 require('./maintenanceRequest').default(routes);
 require('./announcement').default(routes);
 require('./feedback').default(routes);
+require('./contact').default(routes);
+require('./ticket').default(routes);
 
 // Loads the Tenant if the :tenantId param is passed
 routes.param('tenantId', tenantMiddleware);

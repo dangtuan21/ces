@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/contact`,
+    require('./contactCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/contact/:id`,
+    require('./contactUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/contact/import`,
+    require('./contactImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/contact`,
+    require('./contactDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/contact/autocomplete`,
+    require('./contactAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/contact`,
+    require('./contactList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/contact/:id`,
+    require('./contactFind').default,
+  );
+};

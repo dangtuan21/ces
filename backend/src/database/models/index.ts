@@ -11,6 +11,8 @@ const models = [
   require('./maintenanceRequest').default,
   require('./announcement').default,
   require('./feedback').default,
+  require('./contact').default,
+  require('./ticket').default,
 ];
 
 export default function init(database) {
