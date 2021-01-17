@@ -54,7 +54,7 @@ export default class AuthService {
 
   static async signinWithEmailAndPassword(email, password) {
     const invitationToken = AuthInvitationToken.get();
-    console.log('Signin... ttt22', email);
+    console.log('Signin... ttt2233', email);
     try {
       const axios = require('axios');
       const result = await axios.put(
