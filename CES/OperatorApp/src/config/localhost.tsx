@@ -1,4 +1,5 @@
-const backendUrl = `http://localhost:8080/api`;
+// const backendUrl = `http://localhost:8080/api`;
+const backendUrl = `localhost:8080/api`;
 
 /**
  * Frontend Url.
@@ -27,5 +28,5 @@ export default {
   backendUrl,
   tenantMode,
   isPlanEnabled,
-  stripePublishableKey
+  stripePublishableKey,
 };
