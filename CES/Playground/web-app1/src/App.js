@@ -1,14 +1,5 @@
 import "./App.css";
 import React from "react";
-
-// async function connect() {
-//   const axios = require("axios");
-//   const result = await axios.get("http://localhost:8081");
-//   console.log(`statusCode: ${result.status}`);
-//   console.log(result.data);
-//   // res.end("Result " + result.data);
-//   return result.data;
-// }
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,8 +7,6 @@ class App extends React.Component {
   }
   tryconnect = () => {
     const axios = require("axios");
-    // let currentComponent = this;
-
     axios
       .get("http://localhost:8081")
       .then((result) => {
