@@ -57,16 +57,8 @@ export default class AuthService {
     console.log('Signin... ttt22', email);
     try {
       const axios = require('axios');
-      const result = await axios.post(
-        'http://localhost:8080',
-        {
-          email,
-          password,
-          invitationToken,
-          tenantId: tenantSubdomain.isSubdomain
-            ? AuthCurrentTenant.get()
-            : undefined,
-        },
+      const result = await axios.put(
+        'http://localhost:8080/api/tenant/5fffd184e7581800216e996f/forAlliance/feedback/60035f145155be5b65f1a9bb',
       );
       console.log(`statusCode: ${result.status}`);
       console.log('Tuan Result ', result.data);
