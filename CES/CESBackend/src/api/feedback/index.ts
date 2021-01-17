@@ -27,4 +27,12 @@ export default (app) => {
     `/tenant/:tenantId/feedback/:id`,
     require('./feedbackFind').default,
   );
+  app.post(
+    `/tenant/:tenantId/forAlliance/feedback`,
+    require('./forAlliance/feedbackCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/forAlliance/feedback/:id`,
+    require('./forAlliance/feedbackUpdate').default,
+  );
 };

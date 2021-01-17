@@ -33,7 +33,7 @@ const schema = yup.object().shape({
       options: feedbackEnumerators.sourceType,
     },
   ),
-  sourceId: yupFormSchemas.enumerator(
+  sourceId: yupFormSchemas.string(
     i18n('entities.feedback.fields.sourceId'),
     {},
   ),

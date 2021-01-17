@@ -41,7 +41,6 @@ export default class FeedbackService {
     };
 
     const tenantId = AuthCurrentTenant.get();
-
     const response = await authAxios.post(
       `/tenant/${tenantId}/feedback`,
       body,

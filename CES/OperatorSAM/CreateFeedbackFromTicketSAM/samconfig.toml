@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "CreateFeedbackFromTicketApp"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1e8zddni9wy5o"
+s3_prefix = "CreateFeedbackFromTicketApp"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"

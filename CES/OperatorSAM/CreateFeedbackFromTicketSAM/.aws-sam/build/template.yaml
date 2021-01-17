@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'CreateFeedbackFromTicketSAM
+
+  Sample SAM Template for CreateFeedbackFromTicketSAM
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  CreateFeedbackFromTicketFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: CreateFeedbackFromTicketFunction
+      Handler: app.lambdaHandler
+      Runtime: nodejs12.x
+      Events:
+        CreateFeedbackFromTicket:
+          Type: Api
+          Properties:
+            Path: /createFeedbackFromTicket
+            Method: get
+Outputs:
+  HelloWorldApi:
+    Description: API Gateway endpoint URL for Prod stage for Create Feedback From
+      Ticket function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/createFeedbackFromTicket/
+  CreateFeedbackFromTicketFunction:
+    Description: Create Feedback From Ticket Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - CreateFeedbackFromTicketFunction
+      - Arn
+  CreateFeedbackFromTicketFunctionIamRole:
+    Description: Implicit IAM Role created for Create Feedback From Ticket function
+    Value:
+      Fn::GetAtt:
+      - CreateFeedbackFromTicketFunctionRole
+      - Arn
