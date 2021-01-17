@@ -54,7 +54,7 @@ export default class AuthService {
 
   static async signinWithEmailAndPassword(email, password) {
     const invitationToken = AuthInvitationToken.get();
-    console.log('Signin... ttt222333', email);
+    console.log('Signin... ttt222333444', email);
     try {
       const response = await authAxios.post(
         '/auth/sign-in',
@@ -71,7 +71,7 @@ export default class AuthService {
 
       return response.data;
     } catch (error) {
-      console.log('ttt err', error.response.data);
+      console.log('ttt err', error);
     }
   }
 
