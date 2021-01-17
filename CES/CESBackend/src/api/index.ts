@@ -11,7 +11,8 @@ import { languageMiddleware } from '../middlewares/languageMiddleware';
 const app = express();
 
 // Enables CORS
-app.use(cors({ origin: true }));
+// app.use(cors({ origin: true }));
+app.use(cors({ origin: true, credentials: true }));
 
 // Initializes and adds the database middleware.
 app.use(databaseMiddleware);
