@@ -1,14 +1,11 @@
 // const backendUrl = `http://localhost:8080/api`;
-// const backendUrl = `http://127.0.0.1:8080/api`;
-// const backendUrl = `http://172.31.94.23:8080/api`;
 const backendUrl = `http://52.201.233.250:8080/api`;
-// const backendUrl = `52.201.233.250:8080/api`;
 /**
  * Frontend Url.
  */
 const frontendUrl = {
-  // host: 'localhost:3000',
-  host: '52.201.233.250:3000',
+  host: 'localhost:3000',
+  // host: '52.201.233.250:3000',
   protocol: 'http',
 };
 
