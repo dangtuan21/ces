@@ -14,6 +14,10 @@ export async function databaseInit() {
   /**
    * Connects to MongoDB
    */
+  console.log(
+    'ttt getConfig().DATABASE_CONNECTION',
+    getConfig().DATABASE_CONNECTION,
+  );
   return mongoose
     .connect(getConfig().DATABASE_CONNECTION, {
       useNewUrlParser: true,
@@ -25,6 +29,7 @@ export async function databaseInit() {
     })
     .then(() => mongoose)
     .catch((error) => {
+      console.error('ttt error', error);
       console.error(error);
 
       throw error;
