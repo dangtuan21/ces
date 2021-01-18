@@ -54,7 +54,7 @@ export default class AuthService {
 
   static async signinWithEmailAndPassword(email, password) {
     const invitationToken = AuthInvitationToken.get();
-    console.log('Signin... ttt11122333', email);
+    console.log('Signin... ttt111', email);
     try {
       const response = await authAxios.post(
         '/auth/sign-in',

@@ -1,5 +1,5 @@
-// const backendUrl = `http://localhost:8080/api`;
-const backendUrl = `http://52.201.233.250:8080/api`;
+const backendUrl = `http://localhost:8080/api`;
+// const backendUrl = `http://52.201.233.250:8080/api`;
 /**
  * Frontend Url.
  */
