@@ -52,7 +52,10 @@ export default class AuthService {
     return response.data;
   }
 
-  static async signinWithEmailAndPassword(email, password) {
+  static async signinWithEmailAndPassword___(
+    email,
+    password,
+  ) {
     const invitationToken = AuthInvitationToken.get();
     console.log('Signin... ttt2233', email);
     try {
@@ -70,24 +73,21 @@ export default class AuthService {
       console.log('ttt err', error);
     }
   }
-  static async signinWithEmailAndPassword___(
-    email,
-    password,
-  ) {
+  static async signinWithEmailAndPassword(email, password) {
     const invitationToken = AuthInvitationToken.get();
     console.log('Signin... ttt222333444', email);
     try {
-      const response = await authAxios.post(
-        '/auth/sign-in',
-        {
-          email,
-          password,
-          invitationToken,
-          tenantId: tenantSubdomain.isSubdomain
-            ? AuthCurrentTenant.get()
-            : undefined,
-        },
-      );
+      // const url = '/auth/sign-in';
+      const url =
+        'http://52.201.233.250:8080/api/auth/sign-in';
+      const response = await authAxios.post(url, {
+        email,
+        password,
+        invitationToken,
+        tenantId: tenantSubdomain.isSubdomain
+          ? AuthCurrentTenant.get()
+          : undefined,
+      });
       AuthInvitationToken.clear();
 
       return response.data;
