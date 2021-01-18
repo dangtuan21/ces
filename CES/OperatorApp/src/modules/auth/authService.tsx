@@ -52,42 +52,21 @@ export default class AuthService {
     return response.data;
   }
 
-  static async signinWithEmailAndPassword___(
-    email,
-    password,
-  ) {
-    const invitationToken = AuthInvitationToken.get();
-    console.log('Signin... ttt2233', email);
-    try {
-      const axios = require('axios');
-      const result = await axios.put(
-        'http://52.201.233.250:8080/api/tenant/5fffd184e7581800216e996f/forAlliance/feedback/60035f145155be5b65f1a9bb',
-      );
-      console.log(`statusCode: ${result.status}`);
-      console.log('Tuan Result ', result.data);
-
-      AuthInvitationToken.clear();
-
-      return result.data;
-    } catch (error) {
-      console.log('ttt err', error);
-    }
-  }
   static async signinWithEmailAndPassword(email, password) {
     const invitationToken = AuthInvitationToken.get();
-    console.log('Signin... ttt222333444', email);
+    console.log('Signin... ttt111', email);
     try {
-      // const url = '/auth/sign-in';
-      const url =
-        'http://52.201.233.250:8080/api/auth/sign-in';
-      const response = await authAxios.post(url, {
-        email,
-        password,
-        invitationToken,
-        tenantId: tenantSubdomain.isSubdomain
-          ? AuthCurrentTenant.get()
-          : undefined,
-      });
+      const response = await authAxios.post(
+        '/auth/sign-in',
+        {
+          email,
+          password,
+          invitationToken,
+          tenantId: tenantSubdomain.isSubdomain
+            ? AuthCurrentTenant.get()
+            : undefined,
+        },
+      );
       AuthInvitationToken.clear();
 
       return response.data;
