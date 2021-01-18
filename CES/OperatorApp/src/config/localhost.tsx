@@ -5,9 +5,15 @@ const backendUrl = `http://52.201.233.250:8080/api`;
  */
 const frontendUrl = {
   host: 'localhost:3000',
-  // host: '52.201.233.250:3000',
   protocol: 'http',
 };
+
+console.log(
+  'ttt backendUrl',
+  backendUrl,
+  ', frontendUrl',
+  frontendUrl,
+);
 
 /**
  * Tenant Mode

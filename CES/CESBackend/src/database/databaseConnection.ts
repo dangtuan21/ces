@@ -25,7 +25,6 @@ export async function databaseInit() {
     })
     .then(() => mongoose)
     .catch((error) => {
-      console.error('ttt error', error);
       console.error(error);
 
       throw error;
