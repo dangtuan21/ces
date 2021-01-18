@@ -7,8 +7,8 @@ class App extends React.Component {
   }
   tryconnect = () => {
     const axios = require("axios");
-    const url = "http://52.201.233.250:8081";
-    // const url = "http://localhost:8081";
+    // const url = "http://52.201.233.250:8081"; //Ok
+    const url = "http://localhost:8081";
     axios
       .get(url)
       .then((result) => {

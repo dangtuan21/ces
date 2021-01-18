@@ -58,7 +58,7 @@ export default class AuthService {
     try {
       const axios = require('axios');
       const result = await axios.put(
-        'http://localhost:8080/api/tenant/5fffd184e7581800216e996f/forAlliance/feedback/60035f145155be5b65f1a9bb',
+        'http://52.201.233.250:8080/api/tenant/5fffd184e7581800216e996f/forAlliance/feedback/60035f145155be5b65f1a9bb',
       );
       console.log(`statusCode: ${result.status}`);
       console.log('Tuan Result ', result.data);
