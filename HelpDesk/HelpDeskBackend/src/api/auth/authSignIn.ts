@@ -2,6 +2,7 @@ import ApiResponseHandler from '../apiResponseHandler';
 import AuthService from '../../services/auth/authService';
 
 export default async (req, res, next) => {
+  console.log('Signning in: ', req.body.email);
   try {
     const payload = await AuthService.signin(
       req.body.email,
@@ -10,8 +11,6 @@ export default async (req, res, next) => {
       req.body.tenantId,
       req,
     );
-
-    console.log('Signning in: ', req.body.email);
 
     await ApiResponseHandler.success(req, res, payload);
   } catch (error) {
