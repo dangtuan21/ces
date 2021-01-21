@@ -1,6 +1,6 @@
 // const backendUrl = `http://localhost:8080/api`;
 //  ttt
-const backendUrl = `http://52.201.233.250:8080/api`;
+const backendUrl = `http://35.172.135.3:8080/api`;
 /**
  * Frontend Url.
  */
