@@ -12,7 +12,7 @@ export default class AuthService {
         tenantId: tenantSubdomain.isSubdomain
           ? AuthCurrentTenant.get()
           : undefined,
-      }
+      },
     );
 
     return response.data;
@@ -54,6 +54,9 @@ export default class AuthService {
 
   static async signinWithEmailAndPassword(email, password) {
     const invitationToken = AuthInvitationToken.get();
+
+    const uri = authAxios.getUri();
+    console.log('ttt Backend uri ', uri);
 
     const response = await authAxios.post('/auth/sign-in', {
       email,
