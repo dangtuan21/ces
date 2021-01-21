@@ -1,0 +1,8 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: triggerCreateTicket
+Resources:
+  SNSTopic:
+    Type: "AWS::SNS::Topic"
+    Properties:
+      DisplayName: trigger-create-ticket
+      TopicName: trigger-create-ticket

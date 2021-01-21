@@ -1,8 +1,13 @@
-const backendUrl = `http://localhost:8080/api`;
+//  ttt
+// const backendUrl = `http://localhost/api`;
+// const backendUrl = `http://localhost:8096/api`;
+const backendUrl = `http://52.201.233.250:8096/api`;
 
 /**
  * Frontend Url.
  */
+
+// ttt
 const frontendUrl = {
   host: 'localhost:3000',
   protocol: 'http',
@@ -27,5 +32,5 @@ export default {
   backendUrl,
   tenantMode,
   isPlanEnabled,
-  stripePublishableKey
+  stripePublishableKey,
 };

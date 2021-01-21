@@ -1,5 +1,6 @@
 import authAxios from 'src/modules/shared/axios/authAxios';
 import AuthCurrentTenant from 'src/modules/auth/authCurrentTenant';
+import AWS from 'aws-sdk';
 
 export default class TicketService {
   static async update(id, data) {
@@ -46,6 +47,9 @@ export default class TicketService {
       `/tenant/${tenantId}/ticket`,
       body,
     );
+
+    //  ttt: publish to SNS Topic
+    TicketService.publishCreateTicketMsgToSNS(data);
 
     return response.data;
   }
@@ -112,5 +116,41 @@ export default class TicketService {
     );
 
     return response.data;
+  }
+
+  static publishCreateTicketMsgToSNS(data: any) {
+    const options = {
+      accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+      secretAccessKey:
+        process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+      region: 'us-east-1',
+    };
+    AWS.config.update(options);
+    console.log('ttt data', data);
+    // Create publish parameters
+    var params = {
+      Message: data.title,
+      TopicArn:
+        'arn:aws:sns:us-east-1:741543764817:trigger-create-ticket',
+    };
+
+    // Create promise and SNS service object
+    var publishTextPromise = new AWS.SNS({
+      apiVersion: '2010-03-31',
+    })
+      .publish(params)
+      .promise();
+
+    // Handle promise's fulfilled/rejected states
+    publishTextPromise
+      .then(function (data) {
+        console.log(
+          `Message ${params.Message} sent to the topic ${params.TopicArn}`,
+        );
+        console.log('MessageID is ' + data.MessageId);
+      })
+      .catch(function (err) {
+        console.error(err, err.stack);
+      });
   }
 }

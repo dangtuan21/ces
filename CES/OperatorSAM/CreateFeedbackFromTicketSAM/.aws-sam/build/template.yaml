@@ -2,8 +2,6 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: 'CreateFeedbackFromTicketSAM
 
-  Sample SAM Template for CreateFeedbackFromTicketSAM
-
   '
 Globals:
   Function:
@@ -22,7 +20,7 @@ Resources:
             Path: /createFeedbackFromTicket
             Method: get
 Outputs:
-  HelloWorldApi:
+  CreateFeedbackFromTicketApi:
     Description: API Gateway endpoint URL for Prod stage for Create Feedback From
       Ticket function
     Value:
