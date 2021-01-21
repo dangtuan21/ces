@@ -14,6 +14,11 @@ export async function databaseInit() {
   /**
    * Connects to MongoDB
    */
+
+  console.log(
+    'ttt getConfig().DATABASE_CONNECTION',
+    getConfig().DATABASE_CONNECTION,
+  );
   return mongoose
     .connect(getConfig().DATABASE_CONNECTION, {
       useNewUrlParser: true,

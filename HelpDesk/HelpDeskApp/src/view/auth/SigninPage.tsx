@@ -62,6 +62,7 @@ function SigninPage() {
   });
 
   const onSubmit = ({ email, password, rememberMe }) => {
+    console.log('ttt onSubmit email', email);
     dispatch(
       actions.doSigninWithEmailAndPassword(
         email,
