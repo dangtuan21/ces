@@ -1,6 +1,5 @@
 // const backendUrl = `http://localhost:8080/api`;
 //  ttt
-// const backendUrl = `http://35.172.135.3:8080/api`;
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 /**
  * Frontend Url.
