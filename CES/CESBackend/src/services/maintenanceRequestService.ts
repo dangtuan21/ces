@@ -2,6 +2,7 @@ import MaintenanceRequestRepository from '../database/repositories/maintenanceRe
 import Error400 from '../errors/Error400';
 import MongooseRepository from '../database/repositories/mongooseRepository';
 import { IServiceOptions } from './IServiceOptions';
+import UserRoleChecker from './iam/userRoleChecker';
 
 /**
  * Handles MaintenanceRequest operations
@@ -24,10 +25,13 @@ export default class MaintenanceRequestService {
     );
 
     try {
-      const record = await MaintenanceRequestRepository.create(data, {
-        ...this.options,
-        session,
-      });
+      const record = await MaintenanceRequestRepository.create(
+        data,
+        {
+          ...this.options,
+          session,
+        },
+      );
 
       await MongooseRepository.commitTransaction(session);
 
@@ -113,7 +117,10 @@ export default class MaintenanceRequestService {
    * @param {*} id
    */
   async findById(id) {
-    return MaintenanceRequestRepository.findById(id, this.options);
+    return MaintenanceRequestRepository.findById(
+      id,
+      this.options,
+    );
   }
 
   /**
@@ -135,13 +142,29 @@ export default class MaintenanceRequestService {
    *
    * @param {*} args
    */
+  // async findAndCountAll__(args) {
+  //   return MaintenanceRequestRepository.findAndCountAll(
+  //     args,
+  //     this.options,
+  //   );
+  // }
   async findAndCountAll(args) {
-    return MaintenanceRequestRepository.findAndCountAll(
-      args,
-      this.options,
-    );
+    if (UserRoleChecker.isOperator(this.options)) {
+      return MaintenanceRequestRepository.findAndCountAll(
+        args,
+        this.options,
+      );
+    } else {
+      args.filter = {
+        ...args.filter,
+        createdBy: this.options.currentUser.id,
+      };
+      return MaintenanceRequestRepository.findAndCountAll(
+        args,
+        this.options,
+      );
+    }
   }
-
   /**
    * Imports a list of MaintenanceRequests.
    *
