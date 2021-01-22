@@ -151,6 +151,7 @@ export default class MaintenanceRequestService {
   async findAndCountAll(args) {
     console.log('ttt new findAndCountAll');
     if (UserRoleChecker.isOperator(this.options)) {
+      console.log('ttt isOperator');
       return MaintenanceRequestRepository.findAndCountAll(
         args,
         this.options,
@@ -160,6 +161,7 @@ export default class MaintenanceRequestService {
         ...args.filter,
         createdBy: this.options.currentUser.id,
       };
+      console.log('ttt res', args.filter);
       return MaintenanceRequestRepository.findAndCountAll(
         args,
         this.options,

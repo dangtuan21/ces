@@ -47,8 +47,6 @@ class MaintenanceRequestRepository {
       options,
     );
 
-    
-
     return this.findById(record.id, options);
   }
 
@@ -58,7 +56,11 @@ class MaintenanceRequestRepository {
    * @param {Object} data
    * @param {Object} [options]
    */
-  static async update(id, data, options: IRepositoryOptions) {
+  static async update(
+    id,
+    data,
+    options: IRepositoryOptions,
+  ) {
     const currentTenant = MongooseRepository.getCurrentTenant(
       options,
     );
@@ -97,8 +99,6 @@ class MaintenanceRequestRepository {
 
     record = await this.findById(id, options);
 
-
-
     return record;
   }
 
@@ -126,7 +126,9 @@ class MaintenanceRequestRepository {
     }
 
     await MongooseRepository.wrapWithSessionIfExists(
-      MaintenanceRequest(options.database).deleteOne({ _id: id }),
+      MaintenanceRequest(options.database).deleteOne({
+        _id: id,
+      }),
       options,
     );
 
@@ -136,8 +138,6 @@ class MaintenanceRequestRepository {
       record,
       options,
     );
-
-
   }
 
   /**
@@ -172,8 +172,7 @@ class MaintenanceRequestRepository {
     );
 
     let record = await MongooseRepository.wrapWithSessionIfExists(
-      MaintenanceRequest(options.database)
-        .findById(id),
+      MaintenanceRequest(options.database).findById(id),
       options,
     );
 
@@ -209,7 +208,7 @@ class MaintenanceRequestRepository {
     );
 
     let criteriaAnd: any = [];
-    
+
     criteriaAnd.push({
       tenant: currentTenant.id,
     });
@@ -245,7 +244,15 @@ class MaintenanceRequestRepository {
 
       if (filter.category) {
         criteriaAnd.push({
-          category: filter.category
+          category: filter.category,
+        });
+      }
+
+      if (filter.createdBy) {
+        criteriaAnd.push({
+          createdBy: MongooseQueryUtils.uuid(
+            filter.createdBy,
+          ),
         });
       }
 
@@ -313,14 +320,20 @@ class MaintenanceRequestRepository {
    * @param {Object} search
    * @param {number} limit
    */
-  static async findAllAutocomplete(search, limit, options: IRepositoryOptions) {
+  static async findAllAutocomplete(
+    search,
+    limit,
+    options: IRepositoryOptions,
+  ) {
     const currentTenant = MongooseRepository.getCurrentTenant(
       options,
     );
 
-    let criteriaAnd: Array<any> = [{
-      tenant: currentTenant.id,
-    }];
+    let criteriaAnd: Array<any> = [
+      {
+        tenant: currentTenant.id,
+      },
+    ];
 
     if (search) {
       criteriaAnd.push({
@@ -330,10 +343,12 @@ class MaintenanceRequestRepository {
           },
           {
             title: {
-              $regex: MongooseQueryUtils.escapeRegExp(search),
+              $regex: MongooseQueryUtils.escapeRegExp(
+                search,
+              ),
               $options: 'i',
-            }
-          },          
+            },
+          },
         ],
       });
     }
@@ -343,7 +358,9 @@ class MaintenanceRequestRepository {
 
     const criteria = { $and: criteriaAnd };
 
-    const records = await MaintenanceRequest(options.database)
+    const records = await MaintenanceRequest(
+      options.database,
+    )
       .find(criteria)
       .limit(limitEscaped)
       .sort(sort);
@@ -362,10 +379,16 @@ class MaintenanceRequestRepository {
    * @param {object} data - The new data passed on the request
    * @param {object} options
    */
-  static async _createAuditLog(action, id, data, options: IRepositoryOptions) {
+  static async _createAuditLog(
+    action,
+    id,
+    data,
+    options: IRepositoryOptions,
+  ) {
     await AuditLogRepository.log(
       {
-        entityName: MaintenanceRequest(options.database).modelName,
+        entityName: MaintenanceRequest(options.database)
+          .modelName,
         entityId: id,
         action,
         values: data,
