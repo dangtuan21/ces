@@ -149,6 +149,7 @@ export default class MaintenanceRequestService {
   //   );
   // }
   async findAndCountAll(args) {
+    console.log('ttt new findAndCountAll');
     if (UserRoleChecker.isOperator(this.options)) {
       return MaintenanceRequestRepository.findAndCountAll(
         args,
