@@ -56,6 +56,13 @@ export default [
   },
 
   {
+    path: '/expense',
+    permissionRequired: permissions.expenseRead,
+    icon: 'fas fa-chevron-right',
+    label: i18n('entities.expense.menu'),
+  },
+
+  {
     path: '/maintenance-request',
     permissionRequired: permissions.maintenanceRequestRead,
     icon: 'fas fa-chevron-right',

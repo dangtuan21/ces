@@ -30,6 +30,60 @@ const ptBR = {
   },
 
   entities: {
+    customer: {
+        name: 'Customer',
+        label: 'Customers',
+        menu: 'Customers',
+        exporterFileName: 'Customer_exportados',
+        list: {
+          menu: 'Customers',
+          title: 'Customers',
+        },
+        create: {
+          success: 'Customer salvo com sucesso',
+        },
+        update: {
+          success: 'Customer salvo com sucesso',
+        },
+        destroy: {
+          success: 'Customer deletado com sucesso',
+        },
+        destroyAll: {
+          success: 'Customer(s) deletado com sucesso',
+        },
+        edit: {
+          title: 'Editar Customer',
+        },
+        fields: {
+          id: 'Id',
+          'name': 'Name',
+          'birthdateRange': 'Birthdate',
+          'birthdate': 'Birthdate',
+          'gender': 'Gender',
+          createdAt: 'Criado em',
+          updatedAt: 'Atualizado em',
+          createdAtRange: 'Criado em',
+        },
+        enumerators: {
+          'gender': {
+            'male': 'Male',
+            'female': 'Female',
+          },
+        },
+        new: {
+          title: 'Novo Customer',
+        },
+        view: {
+          title: 'Visualizar Customer',
+        },
+        importer: {
+          title: 'Importar Customers',
+          fileName: 'customer_template_importacao',
+          hint:
+            'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
+        },
+      },
+
     property: {
         name: 'Property',
         label: 'Properties',
@@ -95,6 +149,58 @@ const ptBR = {
         },
       },
 
+    order: {
+        name: 'Order',
+        label: 'Orders',
+        menu: 'Orders',
+        exporterFileName: 'Order_exportados',
+        list: {
+          menu: 'Orders',
+          title: 'Orders',
+        },
+        create: {
+          success: 'Order salvo com sucesso',
+        },
+        update: {
+          success: 'Order salvo com sucesso',
+        },
+        destroy: {
+          success: 'Order deletado com sucesso',
+        },
+        destroyAll: {
+          success: 'Order(s) deletado com sucesso',
+        },
+        edit: {
+          title: 'Editar Order',
+        },
+        fields: {
+          id: 'Id',
+          'customer': 'Customer',
+          'products': 'Products',
+          'employee': 'Employee',
+          'delivered': 'Delivered',
+          'attachments': 'Attachments',
+          createdAt: 'Criado em',
+          updatedAt: 'Atualizado em',
+          createdAtRange: 'Criado em',
+        },
+        enumerators: {
+
+        },
+        new: {
+          title: 'Novo Order',
+        },
+        view: {
+          title: 'Visualizar Order',
+        },
+        importer: {
+          title: 'Importar Orders',
+          fileName: 'order_template_importacao',
+          hint:
+            'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
+        },
+      },
+
     resident: {
         name: 'Resident',
         label: 'Residents',
@@ -143,6 +249,65 @@ const ptBR = {
         importer: {
           title: 'Importar Residents',
           fileName: 'resident_template_importacao',
+          hint:
+            'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
+        },
+      },
+
+    expense: {
+        name: 'Expense',
+        label: 'Expenses',
+        menu: 'Expenses',
+        exporterFileName: 'Expense_exportados',
+        list: {
+          menu: 'Expenses',
+          title: 'Expenses',
+        },
+        create: {
+          success: 'Expense salvo com sucesso',
+        },
+        update: {
+          success: 'Expense salvo com sucesso',
+        },
+        destroy: {
+          success: 'Expense deletado com sucesso',
+        },
+        destroyAll: {
+          success: 'Expense(s) deletado com sucesso',
+        },
+        edit: {
+          title: 'Editar Expense',
+        },
+        fields: {
+          id: 'Id',
+          'category': 'Category',
+          'amountRange': 'Amount',
+          'amount': 'Amount',
+          'property': 'Property',
+          'payDateRange': 'Pay Date',
+          'payDate': 'Pay Date',
+          'vendor': 'Vendor',
+          createdAt: 'Criado em',
+          updatedAt: 'Atualizado em',
+          createdAtRange: 'Criado em',
+        },
+        enumerators: {
+          'category': {
+            'waste': 'Waste',
+            'water_repair': 'Water_repair',
+            'electric_repair': 'Electric_repair',
+            'security': 'Security',
+          },
+        },
+        new: {
+          title: 'Novo Expense',
+        },
+        view: {
+          title: 'Visualizar Expense',
+        },
+        importer: {
+          title: 'Importar Expenses',
+          fileName: 'expense_template_importacao',
           hint:
             'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
         },
@@ -198,6 +363,55 @@ const ptBR = {
         importer: {
           title: 'Importar MaintenanceRequests',
           fileName: 'maintenanceRequest_template_importacao',
+          hint:
+            'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
+        },
+      },
+
+    announcement: {
+        name: 'Announcement',
+        label: 'Announcements',
+        menu: 'Announcements',
+        exporterFileName: 'Announcement_exportados',
+        list: {
+          menu: 'Announcements',
+          title: 'Announcements',
+        },
+        create: {
+          success: 'Announcement salvo com sucesso',
+        },
+        update: {
+          success: 'Announcement salvo com sucesso',
+        },
+        destroy: {
+          success: 'Announcement deletado com sucesso',
+        },
+        destroyAll: {
+          success: 'Announcement(s) deletado com sucesso',
+        },
+        edit: {
+          title: 'Editar Announcement',
+        },
+        fields: {
+          id: 'Id',
+          'title': 'Title',
+          'description': 'Description',
+          createdAt: 'Criado em',
+          updatedAt: 'Atualizado em',
+          createdAtRange: 'Criado em',
+        },
+        enumerators: {
+
+        },
+        new: {
+          title: 'Novo Announcement',
+        },
+        view: {
+          title: 'Visualizar Announcement',
+        },
+        importer: {
+          title: 'Importar Announcements',
+          fileName: 'announcement_template_importacao',
           hint:
             'Arquivos/Imagens devem ser as URLs dos arquivos, separados por espaço. Relacionamentos devem ser os IDs separados por espaço.',
         },

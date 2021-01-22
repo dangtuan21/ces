@@ -102,7 +102,6 @@ export default class UserService {
     };
 
     const tenantId = AuthCurrentTenant.get();
-
     const response = await authAxios.get(
       `/tenant/${tenantId}/user/autocomplete`,
       {

@@ -13,6 +13,7 @@ import FilterPreview from 'src/view/shared/filter/FilterPreview';
 import filterRenders from 'src/modules/shared/filter/filterRenders';
 import InputFormItem from 'src/view/shared/form/items/InputFormItem';
 import PropertyAutocompleteFormItem from 'src/view/property/autocomplete/PropertyAutocompleteFormItem';
+import UserAutocompleteFormItem from 'src/view/user/autocomplete/UserAutocompleteFormItem';
 
 const schema = yup.object().shape({
   firstName: yupFilterSchemas.string(
@@ -33,6 +34,9 @@ const schema = yup.object().shape({
   property: yupFilterSchemas.relationToOne(
     i18n('entities.resident.fields.property'),
   ),
+  user: yupFilterSchemas.relationToOne(
+    i18n('entities.resident.fields.user'),
+  ),
 });
 
 const emptyValues = {
@@ -42,7 +46,8 @@ const emptyValues = {
   phoneNumber: null,
   email: null,
   property: null,
-}
+  user: null,
+};
 
 const previewRenders = {
   firstName: {
@@ -66,10 +71,14 @@ const previewRenders = {
     render: filterRenders.generic(),
   },
   property: {
-      label: i18n('entities.resident.fields.property'),
-      render: filterRenders.relationToOne(),
-    },
-}
+    label: i18n('entities.resident.fields.property'),
+    render: filterRenders.relationToOne(),
+  },
+  user: {
+    label: i18n('entities.resident.fields.user'),
+    render: filterRenders.relationToOne(),
+  },
+};
 
 function ResidentListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -90,7 +99,12 @@ function ResidentListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -131,42 +145,62 @@ function ResidentListFilter(props) {
           <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <div className="row">
-                    <div className="col-lg-6 col-12">
-                      <InputFormItem
-                        name="firstName"
-                        label={i18n('entities.resident.fields.firstName')}      
-                      />
-                    </div>
-                    <div className="col-lg-6 col-12">
-                      <InputFormItem
-                        name="lastName"
-                        label={i18n('entities.resident.fields.lastName')}      
-                      />
-                    </div>
-                    <div className="col-lg-6 col-12">
-                      <InputFormItem
-                        name="middleName"
-                        label={i18n('entities.resident.fields.middleName')}      
-                      />
-                    </div>
-                    <div className="col-lg-6 col-12">
-                      <InputFormItem
-                        name="phoneNumber"
-                        label={i18n('entities.resident.fields.phoneNumber')}      
-                      />
-                    </div>
-                    <div className="col-lg-6 col-12">
-                      <InputFormItem
-                        name="email"
-                        label={i18n('entities.resident.fields.email')}      
-                      />
-                    </div>
-                    <div className="col-lg-6 col-12">
-                      <PropertyAutocompleteFormItem  
-                        name="property"
-                        label={i18n('entities.resident.fields.property')}        
-                      />
-                    </div>
+                <div className="col-lg-6 col-12">
+                  <InputFormItem
+                    name="firstName"
+                    label={i18n(
+                      'entities.resident.fields.firstName',
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <InputFormItem
+                    name="lastName"
+                    label={i18n(
+                      'entities.resident.fields.lastName',
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <InputFormItem
+                    name="middleName"
+                    label={i18n(
+                      'entities.resident.fields.middleName',
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <InputFormItem
+                    name="phoneNumber"
+                    label={i18n(
+                      'entities.resident.fields.phoneNumber',
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <InputFormItem
+                    name="email"
+                    label={i18n(
+                      'entities.resident.fields.email',
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <PropertyAutocompleteFormItem
+                    name="property"
+                    label={i18n(
+                      'entities.resident.fields.property',
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <UserAutocompleteFormItem
+                    name="user"
+                    label={i18n(
+                      'entities.resident.fields.user',
+                    )}
+                  />
+                </div>
               </div>
 
               <div className="row">

@@ -180,6 +180,44 @@ const privateRoutes = [
   },
 
   {
+    path: '/expense',
+    loader: () =>
+      import('src/view/expense/list/ExpenseListPage'),
+    permissionRequired: permissions.expenseRead,
+    exact: true,
+  },
+  {
+    path: '/expense/new',
+    loader: () =>
+      import('src/view/expense/form/ExpenseFormPage'),
+    permissionRequired: permissions.expenseCreate,
+    exact: true,
+  },
+  {
+    path: '/expense/importer',
+    loader: () =>
+      import(
+        'src/view/expense/importer/ExpenseImporterPage'
+      ),
+    permissionRequired: permissions.expenseImport,
+    exact: true,
+  },
+  {
+    path: '/expense/:id/edit',
+    loader: () =>
+      import('src/view/expense/form/ExpenseFormPage'),
+    permissionRequired: permissions.expenseEdit,
+    exact: true,
+  },
+  {
+    path: '/expense/:id',
+    loader: () =>
+      import('src/view/expense/view/ExpenseViewPage'),
+    permissionRequired: permissions.expenseRead,
+    exact: true,
+  },
+
+  {
     path: '/maintenance-request',
     loader: () =>
       import(

@@ -8,6 +8,7 @@ import auditLog from 'src/modules/auditLog/auditLogReducers';
 import settings from 'src/modules/settings/settingsReducers';
 import property from 'src/modules/property/propertyReducers';
 import resident from 'src/modules/resident/residentReducers';
+import expense from 'src/modules/expense/expenseReducers';
 import maintenanceRequest from 'src/modules/maintenanceRequest/maintenanceRequestReducers';
 import announcement from 'src/modules/announcement/announcementReducers';
 import feedback from 'src/modules/feedback/feedbackReducers';
@@ -25,6 +26,7 @@ export default (history) =>
     settings,
     property,
     resident,
+    expense,
     maintenanceRequest,
     announcement,
     feedback,

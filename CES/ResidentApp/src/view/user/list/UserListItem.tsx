@@ -32,7 +32,8 @@ function UserListItem(props) {
       return record.email;
     }
 
-    return `${record.fullName} <${record.email}>`;
+    // return `${record.fullName} <${record.email}>`;
+    return `${record.email}`;
   };
 
   const displayableRecord = (record) => {

@@ -26,6 +26,12 @@ const schema = yup.object().shape({
   feedbackStatus: yupFilterSchemas.enumerator(
     i18n('entities.feedback.fields.feedbackStatus'),
   ),
+  sourceType: yupFilterSchemas.enumerator(
+    i18n('entities.feedback.fields.sourceType'),
+  ),
+  sourceId: yupFilterSchemas.string(
+    i18n('entities.feedback.fields.sourceId'),
+  ),
   assignee: yupFilterSchemas.relationToOne(
     i18n('entities.feedback.fields.assignee'),
   ),
@@ -35,8 +41,10 @@ const emptyValues = {
   title: null,
   description: null,
   feedbackStatus: null,
+  sourceType: null,
+  sourceId: null,
   assignee: null,
-}
+};
 
 const previewRenders = {
   title: {
@@ -49,13 +57,25 @@ const previewRenders = {
   },
   feedbackStatus: {
     label: i18n('entities.feedback.fields.feedbackStatus'),
-    render: filterRenders.enumerator('entities.feedback.enumerators.feedbackStatus',),
+    render: filterRenders.enumerator(
+      'entities.feedback.enumerators.feedbackStatus',
+    ),
+  },
+  sourceType: {
+    label: i18n('entities.feedback.fields.sourceType'),
+    render: filterRenders.enumerator(
+      'entities.feedback.enumerators.sourceType',
+    ),
+  },
+  sourceId: {
+    label: i18n('entities.feedback.fields.sourceId'),
+    render: filterRenders.generic(),
   },
   assignee: {
     label: i18n('entities.feedback.fields.assignee'),
     render: filterRenders.relationToOne(),
   },
-}
+};
 
 function FeedbackListFilter(props) {
   const rawFilter = useSelector(selectors.selectRawFilter);
@@ -76,7 +96,12 @@ function FeedbackListFilter(props) {
   });
 
   useEffect(() => {
-    dispatch(actions.doFetch(schema.cast(initialValues), rawFilter));
+    dispatch(
+      actions.doFetch(
+        schema.cast(initialValues),
+        rawFilter,
+      ),
+    );
     // eslint-disable-next-line
   }, [dispatch]);
 
@@ -117,38 +142,71 @@ function FeedbackListFilter(props) {
           <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <div className="row">
-                    <div className="col-lg-6 col-12">
-                      <InputFormItem
-                        name="title"
-                        label={i18n('entities.feedback.fields.title')}      
-                      />
-                    </div>
-                    <div className="col-lg-6 col-12">
-                      <InputFormItem
-                        name="description"
-                        label={i18n('entities.feedback.fields.description')}      
-                      />
-                    </div>
-                    <div className="col-lg-6 col-12">
-                      <SelectFormItem
-                        name="feedbackStatus"
-                        label={i18n('entities.feedback.fields.feedbackStatus')}
-                        options={feedbackEnumerators.feedbackStatus.map(
-                          (value) => ({
-                            value,
-                            label: i18n(
-                              `entities.feedback.enumerators.feedbackStatus.${value}`,
-                            ),
-                          }),
-                        )}
-                      />
-                    </div>
-                    <div className="col-lg-6 col-12">
-                      <UserAutocompleteFormItem  
-                        name="assignee"
-                        label={i18n('entities.feedback.fields.assignee')}        
-                      />
-                    </div>
+                <div className="col-lg-6 col-12">
+                  <InputFormItem
+                    name="title"
+                    label={i18n(
+                      'entities.feedback.fields.title',
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <InputFormItem
+                    name="description"
+                    label={i18n(
+                      'entities.feedback.fields.description',
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <SelectFormItem
+                    name="feedbackStatus"
+                    label={i18n(
+                      'entities.feedback.fields.feedbackStatus',
+                    )}
+                    options={feedbackEnumerators.feedbackStatus.map(
+                      (value) => ({
+                        value,
+                        label: i18n(
+                          `entities.feedback.enumerators.feedbackStatus.${value}`,
+                        ),
+                      }),
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <SelectFormItem
+                    name="sourceType"
+                    label={i18n(
+                      'entities.feedback.fields.sourceType',
+                    )}
+                    options={feedbackEnumerators.sourceType.map(
+                      (value) => ({
+                        value,
+                        label: i18n(
+                          `entities.feedback.enumerators.sourceType.${value}`,
+                        ),
+                      }),
+                    )}
+                  />
+                </div>
+                <div className="col-lg-6 col-12">
+                  <InputFormItem
+                    name="sourceId"
+                    label={i18n(
+                      'entities.feedback.fields.sourceId',
+                    )}
+                  />
+                </div>
+
+                <div className="col-lg-6 col-12">
+                  <UserAutocompleteFormItem
+                    name="assignee"
+                    label={i18n(
+                      'entities.feedback.fields.assignee',
+                    )}
+                  />
+                </div>
               </div>
 
               <div className="row">

@@ -13,6 +13,7 @@ import Spinner from 'src/view/shared/Spinner';
 import TableWrapper from 'src/view/shared/styles/TableWrapper';
 import Pagination from 'src/view/shared/table/Pagination';
 import PropertyListItem from 'src/view/property/list/PropertyListItem';
+import UserListItem from 'src/view/user/list/UserListItem';
 
 function ResidentListTable(props) {
   const [
@@ -113,56 +114,61 @@ function ResidentListTable(props) {
                   </div>
                 )}
               </TableColumnHeader>
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'firstName'}
-                  label={i18n(
-                    'entities.resident.fields.firstName',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'lastName'}
-                  label={i18n(
-                    'entities.resident.fields.lastName',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'middleName'}
-                  label={i18n(
-                    'entities.resident.fields.middleName',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'phoneNumber'}
-                  label={i18n(
-                    'entities.resident.fields.phoneNumber',
-                  )}
-                />
-                <TableColumnHeader
-                  onSort={doChangeSort}
-                  hasRows={hasRows}
-                  sorter={sorter}
-                  name={'email'}
-                  label={i18n(
-                    'entities.resident.fields.email',
-                  )}
-                />
-                <TableColumnHeader
-                  label={i18n(
-                    'entities.resident.fields.property',
-                  )}
-                />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'firstName'}
+                label={i18n(
+                  'entities.resident.fields.firstName',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'lastName'}
+                label={i18n(
+                  'entities.resident.fields.lastName',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'middleName'}
+                label={i18n(
+                  'entities.resident.fields.middleName',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'phoneNumber'}
+                label={i18n(
+                  'entities.resident.fields.phoneNumber',
+                )}
+              />
+              <TableColumnHeader
+                onSort={doChangeSort}
+                hasRows={hasRows}
+                sorter={sorter}
+                name={'email'}
+                label={i18n(
+                  'entities.resident.fields.email',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.resident.fields.property',
+                )}
+              />
+              <TableColumnHeader
+                label={i18n(
+                  'entities.resident.fields.user',
+                )}
+              />
               <TableColumnHeader className="th-actions" />
             </tr>
           </thead>
@@ -213,7 +219,12 @@ function ResidentListTable(props) {
                   <td>{row.phoneNumber}</td>
                   <td>{row.email}</td>
                   <td>
-                    <PropertyListItem value={row.property} />
+                    <PropertyListItem
+                      value={row.property}
+                    />
+                  </td>
+                  <td>
+                    <UserListItem value={row.user} />
                   </td>
                   <td className="td-actions">
                     <Link

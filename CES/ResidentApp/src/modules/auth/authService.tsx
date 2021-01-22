@@ -53,21 +53,26 @@ export default class AuthService {
   }
 
   static async signinWithEmailAndPassword(email, password) {
-    console.log('Signin resident... ttt', email);
     const invitationToken = AuthInvitationToken.get();
+    console.log('Signin... ttt', email);
+    try {
+      const response = await authAxios.post(
+        '/auth/sign-in',
+        {
+          email,
+          password,
+          invitationToken,
+          tenantId: tenantSubdomain.isSubdomain
+            ? AuthCurrentTenant.get()
+            : undefined,
+        },
+      );
+      AuthInvitationToken.clear();
 
-    const response = await authAxios.post('/auth/sign-in', {
-      email,
-      password,
-      invitationToken,
-      tenantId: tenantSubdomain.isSubdomain
-        ? AuthCurrentTenant.get()
-        : undefined,
-    });
-
-    AuthInvitationToken.clear();
-
-    return response.data;
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   static async fetchMe() {

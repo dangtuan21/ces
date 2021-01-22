@@ -1,6 +1,6 @@
 // const backendUrl = `http://localhost:8080/api`;
+//  ttt
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
 /**
  * Frontend Url.
  */
@@ -8,6 +8,13 @@ const frontendUrl = {
   host: 'localhost:3000',
   protocol: 'http',
 };
+
+console.log(
+  'ttt backendUrl',
+  backendUrl,
+  ', frontendUrl',
+  frontendUrl,
+);
 
 /**
  * Tenant Mode

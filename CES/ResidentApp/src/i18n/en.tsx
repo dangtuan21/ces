@@ -30,6 +30,60 @@ const en = {
   },
 
   entities: {
+    customer: {
+      name: 'customer',
+      label: 'Customers',
+      menu: 'Customers',
+      exporterFileName: 'customer_export',
+      list: {
+        menu: 'Customers',
+        title: 'Customers',
+      },
+      create: {
+        success: 'Customer successfully saved',
+      },
+      update: {
+        success: 'Customer successfully saved',
+      },
+      destroy: {
+        success: 'Customer successfully deleted',
+      },
+      destroyAll: {
+        success: 'Customer(s) successfully deleted',
+      },
+      edit: {
+        title: 'Edit Customer',
+      },
+      fields: {
+        id: 'Id',
+        name: 'Name',
+        birthdateRange: 'Birthdate',
+        birthdate: 'Birthdate',
+        gender: 'Gender',
+        createdAt: 'Created at',
+        updatedAt: 'Updated at',
+        createdAtRange: 'Created at',
+      },
+      enumerators: {
+        gender: {
+          male: 'Male',
+          female: 'Female',
+        },
+      },
+      new: {
+        title: 'New Customer',
+      },
+      view: {
+        title: 'View Customer',
+      },
+      importer: {
+        title: 'Import Customers',
+        fileName: 'customer_import_template',
+        hint:
+          'Files/Images columns must be the URLs of the files separated by space.',
+      },
+    },
+
     property: {
       name: 'property',
       label: 'Properties',
@@ -95,6 +149,56 @@ const en = {
       },
     },
 
+    order: {
+      name: 'order',
+      label: 'Orders',
+      menu: 'Orders',
+      exporterFileName: 'order_export',
+      list: {
+        menu: 'Orders',
+        title: 'Orders',
+      },
+      create: {
+        success: 'Order successfully saved',
+      },
+      update: {
+        success: 'Order successfully saved',
+      },
+      destroy: {
+        success: 'Order successfully deleted',
+      },
+      destroyAll: {
+        success: 'Order(s) successfully deleted',
+      },
+      edit: {
+        title: 'Edit Order',
+      },
+      fields: {
+        id: 'Id',
+        customer: 'Customer',
+        products: 'Products',
+        employee: 'Employee',
+        delivered: 'Delivered',
+        attachments: 'Attachments',
+        createdAt: 'Created at',
+        updatedAt: 'Updated at',
+        createdAtRange: 'Created at',
+      },
+      enumerators: {},
+      new: {
+        title: 'New Order',
+      },
+      view: {
+        title: 'View Order',
+      },
+      importer: {
+        title: 'Import Orders',
+        fileName: 'order_import_template',
+        hint:
+          'Files/Images columns must be the URLs of the files separated by space.',
+      },
+    },
+
     resident: {
       name: 'resident',
       label: 'Residents',
@@ -127,6 +231,7 @@ const en = {
         phoneNumber: 'Phone Number',
         email: 'Email',
         property: 'Property',
+        user: 'User',
         createdAt: 'Created at',
         updatedAt: 'Updated at',
         createdAtRange: 'Created at',
@@ -141,6 +246,65 @@ const en = {
       importer: {
         title: 'Import Residents',
         fileName: 'resident_import_template',
+        hint:
+          'Files/Images columns must be the URLs of the files separated by space.',
+      },
+    },
+
+    expense: {
+      name: 'expense',
+      label: 'Expenses',
+      menu: 'Expenses',
+      exporterFileName: 'expense_export',
+      list: {
+        menu: 'Expenses',
+        title: 'Expenses',
+      },
+      create: {
+        success: 'Expense successfully saved',
+      },
+      update: {
+        success: 'Expense successfully saved',
+      },
+      destroy: {
+        success: 'Expense successfully deleted',
+      },
+      destroyAll: {
+        success: 'Expense(s) successfully deleted',
+      },
+      edit: {
+        title: 'Edit Expense',
+      },
+      fields: {
+        id: 'Id',
+        category: 'Category',
+        amountRange: 'Amount',
+        amount: 'Amount',
+        property: 'Property',
+        payDateRange: 'Pay Date',
+        payDate: 'Pay Date',
+        vendor: 'Vendor',
+        createdAt: 'Created at',
+        updatedAt: 'Updated at',
+        createdAtRange: 'Created at',
+      },
+      enumerators: {
+        category: {
+          waste: 'Waste',
+          water_repair: 'Water_repair',
+          electric_repair: 'Electric_repair',
+          security: 'Security',
+        },
+      },
+      new: {
+        title: 'New Expense',
+      },
+      view: {
+        title: 'View Expense',
+      },
+      importer: {
+        title: 'Import Expenses',
+        fileName: 'expense_import_template',
         hint:
           'Files/Images columns must be the URLs of the files separated by space.',
       },
@@ -277,7 +441,9 @@ const en = {
         id: 'Id',
         title: 'Title',
         description: 'Description',
-        feedbackStatus: 'FeedbackStatus',
+        feedbackStatus: 'Feedback Status',
+        sourceType: 'Source Type',
+        sourceId: 'Source Id',
         assignee: 'Assignee',
         createdAt: 'Created at',
         updatedAt: 'Updated at',
@@ -288,6 +454,10 @@ const en = {
           pending: 'Pending',
           working: 'Working',
           closed: 'Closed',
+        },
+        sourceType: {
+          self: 'Self',
+          fromHelpDesk: 'From HelpDesk',
         },
       },
       new: {
@@ -358,9 +528,17 @@ const en = {
       label: 'Admin',
       description: 'Full access to all resources',
     },
-    custom: {
-      label: 'Custom Role',
-      description: 'Custom role access',
+    operator: {
+      label: 'Operator Role',
+      description: 'Operator role access',
+    },
+    renter: {
+      label: 'Renter Role',
+      description: 'Renter role access',
+    },
+    resident: {
+      label: 'Resident Role',
+      description: 'Resident role access',
     },
   },
 
@@ -560,7 +738,7 @@ const en = {
   },
   dashboard: {
     menu: 'Dashboard',
-    message: `This page uses fake data for demonstration purposes only. You can edit it at frontend/view/dashboard/DashboardPage.ts.`,
+    message: `Bieu do chinh`,
     charts: {
       day: 'Day',
       red: 'Red',

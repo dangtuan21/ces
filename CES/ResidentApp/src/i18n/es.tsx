@@ -29,6 +29,60 @@ const es = {
     title: 'Aplicación',
   },
   entities: {
+    customer: {
+        name: 'customer',
+        label: 'Customers',
+        menu: 'Customers',
+        exporterFileName: 'exportacion_customer',
+        list: {
+          menu: 'Customers',
+          title: 'Customers',
+        },
+        create: {
+          success: 'Customer guardado con éxito',
+        },
+        update: {
+          success: 'Customer guardado con éxito',
+        },
+        destroy: {
+          success: 'Customer eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'Customer(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar Customer',
+        },
+        fields: {
+          id: 'Id',
+          'name': 'Name',
+          'birthdateRange': 'Birthdate',
+          'birthdate': 'Birthdate',
+          'gender': 'Gender',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+          'gender': {
+            'male': 'Male',
+            'female': 'Female',
+          },
+        },
+        new: {
+          title: 'Nuevo Customer',
+        },
+        view: {
+          title: 'Ver Customer',
+        },
+        importer: {
+          title: 'Importar Customers',
+          fileName: 'customer_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
     property: {
         name: 'property',
         label: 'Properties',
@@ -94,6 +148,58 @@ const es = {
         },
       },
 
+    order: {
+        name: 'order',
+        label: 'Orders',
+        menu: 'Orders',
+        exporterFileName: 'exportacion_order',
+        list: {
+          menu: 'Orders',
+          title: 'Orders',
+        },
+        create: {
+          success: 'Order guardado con éxito',
+        },
+        update: {
+          success: 'Order guardado con éxito',
+        },
+        destroy: {
+          success: 'Order eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'Order(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar Order',
+        },
+        fields: {
+          id: 'Id',
+          'customer': 'Customer',
+          'products': 'Products',
+          'employee': 'Employee',
+          'delivered': 'Delivered',
+          'attachments': 'Attachments',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        new: {
+          title: 'Nuevo Order',
+        },
+        view: {
+          title: 'Ver Order',
+        },
+        importer: {
+          title: 'Importar Orders',
+          fileName: 'order_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
     resident: {
         name: 'resident',
         label: 'Residents',
@@ -142,6 +248,65 @@ const es = {
         importer: {
           title: 'Importar Residents',
           fileName: 'resident_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    expense: {
+        name: 'expense',
+        label: 'Expenses',
+        menu: 'Expenses',
+        exporterFileName: 'exportacion_expense',
+        list: {
+          menu: 'Expenses',
+          title: 'Expenses',
+        },
+        create: {
+          success: 'Expense guardado con éxito',
+        },
+        update: {
+          success: 'Expense guardado con éxito',
+        },
+        destroy: {
+          success: 'Expense eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'Expense(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar Expense',
+        },
+        fields: {
+          id: 'Id',
+          'category': 'Category',
+          'amountRange': 'Amount',
+          'amount': 'Amount',
+          'property': 'Property',
+          'payDateRange': 'Pay Date',
+          'payDate': 'Pay Date',
+          'vendor': 'Vendor',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+          'category': {
+            'waste': 'Waste',
+            'water_repair': 'Water_repair',
+            'electric_repair': 'Electric_repair',
+            'security': 'Security',
+          },
+        },
+        new: {
+          title: 'Nuevo Expense',
+        },
+        view: {
+          title: 'Ver Expense',
+        },
+        importer: {
+          title: 'Importar Expenses',
+          fileName: 'expense_import_template',
           hint:
             'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
         },
@@ -197,6 +362,55 @@ const es = {
         importer: {
           title: 'Importar MaintenanceRequests',
           fileName: 'maintenanceRequest_import_template',
+          hint:
+            'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
+        },
+      },
+
+    announcement: {
+        name: 'announcement',
+        label: 'Announcements',
+        menu: 'Announcements',
+        exporterFileName: 'exportacion_announcement',
+        list: {
+          menu: 'Announcements',
+          title: 'Announcements',
+        },
+        create: {
+          success: 'Announcement guardado con éxito',
+        },
+        update: {
+          success: 'Announcement guardado con éxito',
+        },
+        destroy: {
+          success: 'Announcement eliminado con éxito',
+        },
+        destroyAll: {
+          success: 'Announcement(s) eliminado con éxito',
+        },
+        edit: {
+          title: 'Editar Announcement',
+        },
+        fields: {
+          id: 'Id',
+          'title': 'Title',
+          'description': 'Description',
+          createdAt: 'Creado el',
+          updatedAt: 'Actualizado el',
+          createdAtRange: 'Creado el',
+        },
+        enumerators: {
+
+        },
+        new: {
+          title: 'Nuevo Announcement',
+        },
+        view: {
+          title: 'Ver Announcement',
+        },
+        importer: {
+          title: 'Importar Announcements',
+          fileName: 'announcement_import_template',
           hint:
             'Las columnas Archivos/Imágenes deben ser las URL de los archivos separados por espacio.',
         },
